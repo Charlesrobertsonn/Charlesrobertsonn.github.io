@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Name It Exercise - CVC Vowels 'a' and 'i'</title>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .image-container {
+    margin-bottom: 20px;
+  }
+  .word-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Match the Word to the Image</h2>
+  <div class="image-container">
+    <img src="path_to_image_of_cat.jpg" alt="Cat" id="cvcImage" width="300">
+    <p id="imageLabel">Cat</p>
+  </div>
+  <div class="word-buttons">
+    <button onclick="checkAnswer('cat')">Cat</button>
+    <button onclick="checkAnswer('cap')">Cap</button>
+    <button onclick="checkAnswer('car')">Car</button>
+    <button onclick="checkAnswer('can')">Can</button>
+  </div>
+  <div class="image-container">
+    <img src="path_to_image_of_pin.jpg" alt="Pin" id="cvcImage2" width="300">
+    <p id="imageLabel2">Pin</p>
+  </div>
+  <div class="word-buttons">
+    <button onclick="checkAnswer('pin')">Pin</button>
+    <button onclick="checkAnswer('pit')">Pit</button>
+    <button onclick="checkAnswer('pig')">Pig</button>
+    <button onclick="checkAnswer('pen')">Pen</button>
+  </div>
+</div>
+
+<script>
+function checkAnswer(selectedWord) {
+  const imageLabel = document.getElementById('imageLabel').innerText.toLowerCase();
+  const imageLabel2 = document.getElementById('imageLabel2').innerText.toLowerCase();
+
+  if (selectedWord === imageLabel || selectedWord === imageLabel2) {
+    alert("Correct! " + selectedWord + " matches the image.");
+  } else {
+    alert("Try again! " + selectedWord + " does not match the image.");
+  }
+}
+</script>
+</body>
+</html>
