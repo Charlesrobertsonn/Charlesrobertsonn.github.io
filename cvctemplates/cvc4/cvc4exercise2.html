@@ -56,7 +56,12 @@
     <button onclick="checkAnswer('sob', 'imageLabel3')">Sob</button>
   </div>
 </div>
-
+<div class="word-buttons">
+    <button onclick="checkAnswer('bed', 'imageLabel1')">Bed</button>
+    <button onclick="checkAnswer('red', 'imageLabel1')">Red</button>
+    <button onclick="checkAnswer('cub', 'imageLabel1')">Cub</button>
+    <button onclick="checkAnswer('mud', 'imageLabel1')">Mud</button>
+</div>
 <script>
 function checkAnswer(selectedWord, labelId) {
   const imageLabel = document.getElementById(labelId).innerText.toLowerCase();
