@@ -1,0 +1,141 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header, footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Navigation styling */
+nav {
+    background: #404040;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Container for content */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Header */
+h1, h2 {
+    color: #333;
+}
+
+/* Text and paragraph styling */
+p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Image styling */
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Buttons and links */
+button, .button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+button:hover, .button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #0073e6; /* Adjust the blue to match your exact color */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Footer container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-right {
+    margin: 0 20px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon {
+    background-color: #000; /* Black background for icons */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+/* Example icons using Font Awesome */
+.footer-icon i {
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container, nav {
+        width: 95%;
+    }
+    nav a {
+        padding: 10px;
+        display: block;
+    }
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-right {
+        margin-top: 10px;
+    }
+}

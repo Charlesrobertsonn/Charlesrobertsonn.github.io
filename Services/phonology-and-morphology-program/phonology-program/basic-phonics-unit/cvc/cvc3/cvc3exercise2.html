@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Name It Exercise - CVC Vowels 'a' and 'i'</title>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .image-container {
+    margin-bottom: 20px;
+  }
+  .word-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Match the Word to the Image</h2>
+  <div class="image-container">
+    <img src="path_to_image_of_bat.jpg" alt="Bat" id="cvcImage1" width="300">
+    <p id="imageLabel1">Bat</p>
+  </div>
+  <div class="word-buttons">
+    <button onclick="checkAnswer('bat', 'imageLabel1')">Bat</button>
+    <button onclick="checkAnswer('rat', 'imageLabel1')">Rat</button>
+    <button onclick="checkAnswer('mad', 'imageLabel1')">Mad</button>
+    <button onclick="checkAnswer('wax', 'imageLabel1')">Wax</button>
+  </div>
+  <div class="image-container">
+    <img src="path_to_image_of_sit.jpg" alt="Sit" id="cvcImage2" width="300">
+    <p id="imageLabel2">Sit</p>
+  </div>
+  <div class="word-buttons">
+    <button onclick="checkAnswer('sit', 'imageLabel2')">Sit</button>
+    <button onclick="checkAnswer('lid', 'imageLabel2')">Lid</button>
+    <button onclick="checkAnswer('dip', 'imageLabel2')">Dip</button>
+  </div>
+  <div class="image-container">
+    <img src="path_to_image_of_log.jpg" alt="Log" id="cvcImage3" width="300">
+    <p id="imageLabel3">Log</p>
+  </div>
+  <div class="word-buttons">
+    <button onclick="checkAnswer('log', 'imageLabel3')">Log</button>
+    <button onclick="checkAnswer('mob', 'imageLabel3')">Mob</button>
+    <button onclick="checkAnswer('sob', 'imageLabel3')">Sob</button>
+  </div>
+</div>
+
+<script>
+function checkAnswer(selectedWord, labelId) {
+  const imageLabel = document.getElementById(labelId).innerText.toLowerCase();
+
+  if (selectedWord === imageLabel) {
+    alert("Correct! " + selectedWord + " matches the image.");
+  } else {
+    alert("Try again! " + selectedWord + " does not match the image.");
+  }
+}
+</script>
+</body>
+</html>
