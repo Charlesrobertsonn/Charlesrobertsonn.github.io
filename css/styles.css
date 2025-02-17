@@ -60,11 +60,10 @@ p {
 }
 
 /* Image styling */
-img {
-    width: 100%;
+.offering-image {
+    max-width: 300px;
     height: auto;
 }
-
 /* Buttons and links */
 button, .button {
     background-color: #007BFF;
