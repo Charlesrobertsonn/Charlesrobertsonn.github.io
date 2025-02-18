@@ -1,1 +1,216 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
+/* Variables for colors */
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #0056b3;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --nav-background: #404040;
+    --footer-background: #0073e6;
+    --footer-icon-background: #000;
+}
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header, footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Navigation styling */
+nav {
+    background: var(--nav-background);
+    text-align: center;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none; /* Remove bullet points */
+    display: flex;
+    gap: 15px; /* Adjust the gap between nav items as needed */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+nav a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: text-decoration 0.3s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Container for content */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Header */
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Center subtitles */
+h2 {
+    text-align: center;
+}
+
+/* Text and paragraph styling */
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Image styling */
+.offering-image {
+    width: 100%;
+    height: auto;
+}
+
+/* Buttons and links */
+button, .button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-background);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Footer container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-right {
+    margin: 0 20px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon {
+    background-color: var(--footer-icon-background);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+/* Example icons using Font Awesome */
+.footer-icon i {
+    font-size: 16px;
+}
+
+/* Offerings container */
+.offerings-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between items as needed */
+    justify-content: space-between;
+}
+
+.offering {
+    flex: 1 1 calc(33.333% - 20px); /* Adjust the width and gap as needed */
+    box-sizing: border-box;
+    text-align: center; /* Center align text and images */
+}
+
+/* Features list */
+.features-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.feature-item {
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container, nav {
+        width: 95%;
+    }
+    nav a {
+        padding: 10px;
+        display: block;
+    }
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-right {
+        margin-top: 10px;
+    }
+    .offerings-container {
+        flex-direction: column;
+    }
+    .offering {
+        flex: 1 1 100%;
+    }
+}
