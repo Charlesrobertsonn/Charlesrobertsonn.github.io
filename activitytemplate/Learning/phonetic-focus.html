@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonetic Focus - Short 'a' Sound</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Video Section */
+        .video-container {
+            margin-bottom: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 8px;
+        }
+
+        /* Reading Section */
+        .word-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .word {
+            padding: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Spelling Activity */
+        .spelling-section {
+            margin-top: 20px;
+        }
+
+        .word-audio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .play-btn {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .check-btn {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Phonetic Focus: Short 'a' Sound</h1>
+
+        <!-- Video Section -->
+        <div class="video-container">
+            <h2>Learn the Short 'a' Sound</h2>
+            <iframe src="https://www.youtube.com/embed/your_video_id_here" allowfullscreen></iframe>
+        </div>
+
+        <!-- Reading Activity -->
+        <div class="reading-section">
+            <h2>Words to Read</h2>
+            <div class="word-list">
+                <div class="word">Cat</div>
+                <div class="word">Bat</div>
+                <div class="word">Map</div>
+                <div class="word">Van</div>
+                <div class="word">Jam</div>
+                <div class="word">Wax</div>
+                <div class="word">Rat</div>
+                <div class="word">Bag</div>
+                <div class="word">Tag</div>
+                <div class="word">Lap</div>
+            </div>
+        </div>
+
+        <!-- Spelling Activity -->
+        <div class="spelling-section">
+            <h2>Spell the Words</h2>
+            <p>Press the "Play" button to hear the word, then type the correct spelling.</p>
+
+            <div class="spelling-list">
+                <div class="word-audio">
+                    <p>Word 1:</p>
+                    <button class="play-btn" onclick="playAudio('bat')">🔊 Play</button>
+                </div>
+                <input type="text" id="word1">
+
+                <div class="word-audio">
+                    <p>Word 2:</p>
+                    <button class="play-btn" onclick="playAudio('map')">🔊 Play</button>
+                </div>
+                <input type="text" id="word2">
+
+                <div class="word-audio">
+                    <p>Word 3:</p>
+                    <button class="play-btn" onclick="playAudio('jam')">🔊 Play</button>
+                </div>
+                <input type="text" id="word3">
+
+                <div class="word-audio">
+                    <p>Word 4:</p>
+                    <button class="play-btn" onclick="playAudio('wax')">🔊 Play</button>
+                </div>
+                <input type="text" id="word4">
+            </div>
+
+            <button class="check-btn" onclick="checkSpelling()">Check Answers</button>
+            <p id="spelling-result" class="result"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to play the audio for a word
+        function playAudio(word) {
+            let audio = new Audio(`audio/${word}.mp3`); // Path to audio files
+            audio.play();
+        }
+
+        // Function to check spelling
+        function checkSpelling() {
+            const correctWords = ["bat", "map", "jam", "wax"];
+            let score = 0;
+
+            for (let i = 1; i <= 4; i++) {
+                let userInput = document.getElementById("word" + i).value.toLowerCase();
+                if (userInput === correctWords[i - 1]) {
+                    score++;
+                }
+            }
+
+            let resultText = score === 4 ? "Excellent! ✅ You got all correct!" : `You got ${score}/4 correct. Try again! ❌`;
+            document.getElementById("spelling-result").textContent = resultText;
+            document.getElementById("spelling-result").style.color = score === 4 ? "green" : "red";
+        }
+    </script>
+
+</body>
+</html>
