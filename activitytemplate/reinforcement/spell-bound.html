@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spell Bound - Spelling & Sentence Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .sentence-box {
+            background: #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .btn-container {
+            margin-top: 10px;
+        }
+
+        .btn {
+            background: blue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: darkblue;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Spell Bound - Spelling & Sentence Review</h1>
+        <p>Listen to the sentence, write it down, and check your answer.</p>
+
+        <!-- Sentence Writing Activity -->
+        <h2>Write the Sentences</h2>
+        <div id="sentence-section">
+            <div class="sentence-box" id="sentence-text">Click "Go" to hear the sentence</div>
+            <textarea id="sentence-input" placeholder="Write the sentence here..."></textarea>
+
+            <div class="btn-container">
+                <button class="btn" onclick="playSentence()">Go</button>
+                <button class="btn" onclick="repeatSentence()">Again</button>
+                <button class="btn" onclick="checkSentence()">Check</button>
+                <button class="btn" onclick="nextSentence()">Next</button>
+            </div>
+
+            <p id="result-message" class="result"></p>
+        </div>
+
+    </div>
+
+    <script>
+        const sentences = [
+            "The kid hid the wig.",
+            "Liz did a spin.",
+            "A fin in the bin.",
+            "Mic picks a fig.",
+            "Bill hits a bat."
+        ];
+
+        let currentSentenceIndex = 0;
+
+        function playSentence() {
+            let sentence = sentences[currentSentenceIndex];
+            let speech = new SpeechSynthesisUtterance(sentence);
+            speech.lang = "en-US";
+            speechSynthesis.speak(speech);
+            document.getElementById("sentence-text").textContent = `"${sentence}"`;
+        }
+
+        function repeatSentence() {
+            playSentence();
+        }
+
+        function checkSentence() {
+            let userInput = document.getElementById("sentence-input").value.trim();
+            let correctSentence = sentences[currentSentenceIndex];
+
+            if (userInput.toLowerCase() === correctSentence.toLowerCase()) {
+                document.getElementById("result-message").textContent = "✅ Correct!";
+                document.getElementById("result-message").style.color = "green";
+            } else {
+                document.getElementById("result-message").textContent = "❌ Incorrect, try again!";
+                document.getElementById("result-message").style.color = "red";
+            }
+        }
+
+        function nextSentence() {
+            document.getElementById("sentence-input").value = "";
+            document.getElementById("result-message").textContent = "";
+
+            currentSentenceIndex++;
+
+            if (currentSentenceIndex >= sentences.length) {
+                document.getElementById("sentence-text").textContent = "🎉 Activity Complete!";
+                document.getElementById("sentence-input").disabled = true;
+            } else {
+                document.getElementById("sentence-text").textContent = "Click 'Go' to hear the sentence.";
+            }
+        }
+    </script>
+
+</body>
+</html>
