@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root Reading</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 2.5em;
+        }
+        h2 {
+            margin-top: 30px;
+            font-size: 2em;
+            text-decoration: underline;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1.2em;
+            border-radius: 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        .floating-image {
+            position: absolute;
+            width: 100px;
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-image.left {
+            left: -100px;
+            top: 20%;
+            animation: float-left 8s linear infinite;
+        }
+        .floating-image.right {
+            right: -100px;
+            top: 60%;
+            animation: float-right 10s linear infinite;
+        }
+        @keyframes float-left {
+            0% { left: -100px; }
+            50% { left: 20px; }
+            100% { left: -100px; }
+        }
+        @keyframes float-right {
+            0% { right: -100px; }
+            50% { right: 20px; }
+            100% { right: -100px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Root Reading</h1>
+    <div class="container">
+        <h2>CVC</h2>
+        <a href="cvc1.html" class="button">CVC 1</a>
+        <a href="cvc2.html" class="button">CVC 2</a>
+        <a href="cvc3.html" class="button">CVC 3</a>
+        <a href="cvc4.html" class="button">CVC 4</a>
+        <a href="cvc5.html" class="button">CVC 5</a>
+        
+        <h2>CCVC</h2>
+        <a href="ccvc1.html" class="button">CCVC 1</a>
+        <a href="ccvc2.html" class="button">CCVC 2</a>
+        <a href="ccvc3.html" class="button">CCVC 3</a>
+        <a href="ccvc4.html" class="button">CCVC 4</a>
+        <a href="ccvc5.html" class="button">CCVC 5</a>
+        
+        <h2>CVCC</h2>
+        <a href="cvcc1.html" class="button">CVCC 1</a>
+        <a href="cvcc2.html" class="button">CVCC 2</a>
+        <a href="cvcc3.html" class="button">CVCC 3</a>
+        <a href="cvcc4.html" class="button">CVCC 4</a>
+        <a href="cvcc5.html" class="button">CVCC 5</a>
+        
+        <h2>CCVCC</h2>
+        <a href="ccvcc1.html" class="button">CCVCC 1</a>
+        <a href="ccvcc2.html" class="button">CCVCC 2</a>
+        <a href="ccvcc3.html" class="button">CCVCC 3</a>
+        <a href="ccvcc4.html" class="button">CCVCC 4</a>
+        <a href="ccvcc5.html" class="button">CCVCC 5</a>
+        
+        <h2>Review</h2>
+        <a href="review.html" class="button">Review</a>
+    </div>
+    <img src="astronaut.png" alt="Astronaut" class="floating-image left">
+    <img src="rocket.png" alt="Rocket" class="floating-image right">
+</body>
+</html>
+<!--     </div>
+ -->
