@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Cards Slideshow</title>
+    <link rel="stylesheet" href="../styles/styles.css"> <!-- Adjust the path as needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            padding: 20px;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+        }
+
+        .slide img {
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .caption {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Navigation buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            user-select: none;
+            outline: none;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Dots for navigation */
+        .dots-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fade effect */
+        .fade {
+            animation: fadeEffect 1s;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0.4;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercise 1: Sound Cards</h1>
+    </header>
+    
+    <main>
+        <section>
+            <p>This exercise involves voicing out the sounds using sound cards.</p>
+        </section>
+
+        <section>
+            <h2>CVC1: Short 'a' Vowel</h2>
+
+            <div class="slideshow-container">
+                
+                <!-- Slide 1 -->
+                <div class="slide fade">
+                    <img src="url_to_image_of_S" alt="S Sound">
+                    <div class="caption">S - [Hear Sound](url_to_sound_file)</div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide fade">
+                    <img src="url_to_image_of_M" alt="M Sound">
+                    <div class="caption">M - [Hear Sound](url_to_sound_file)</div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide fade">
+                    <img src="url_to_image_of_N" alt="N Sound">
+                    <div class="caption">N - [Hear Sound](url_to_sound_file)</div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide fade">
+                    <img src="url_to_image_of_F" alt="F Sound">
+                    <div class="caption">F - [Hear Sound](url_to_sound_file)</div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="slide fade">
+                    <img src="url_to_image_of_T" alt="T Sound">
+                    <div class="caption">T - [Hear Sound](url_to_sound_file)</div>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="slide fade">
+                    <img src="url_to_image_of_A" alt="A Vowel">
+                    <div class="caption">A - [Hear Sound](url_to_sound_file)</div>
+                </div>
+
+                <!-- Slide 7 -->
+                <div class="slide fade">
+                    <img src="url_to_image_of_Bat" alt="CVC Word: Bat">
+                    <div class="caption">CVC Word: Bat</div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+                <!-- Dots for Navigation -->
+                <div class="dots-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Your Name</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n - 1);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+
+            if (n === undefined) {
+                slideIndex++;
+                if (slideIndex >= slides.length) { slideIndex = 0; }
+            } else {
+                if (n >= slides.length) { slideIndex = 0; }
+                if (n < 0) { slideIndex = slides.length - 1; }
+            }
+
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
+
+            for (let dot of dots) {
+                dot.classList.remove("active");
+            }
+
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].classList.add("active");
+
+            setTimeout(showSlides, 3000);
+        }
+    </script>
+
+</body>
+</html>
