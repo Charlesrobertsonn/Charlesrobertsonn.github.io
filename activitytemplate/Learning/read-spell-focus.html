@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Spell Focus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Reading Words */
+        .reading-section {
+            margin-bottom: 20px;
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .word {
+            padding: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .word:hover {
+            background: #bbb;
+        }
+
+        /* Learning Box */
+        .learning-box {
+            position: relative;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .box-section {
+            font-size: 18px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .prefixes {
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: red;
+            text-align: left;
+        }
+
+        .suffixes {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: red;
+            text-align: left;
+        }
+
+        .phonetics {
+            text-align: center;
+            font-size: 22px;
+            color: red;
+        }
+
+        .consonants {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Spelling Activity */
+        .spelling-section {
+            margin-top: 20px;
+        }
+
+        .spelling-input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 200px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .btn-container {
+            margin-top: 10px;
+        }
+
+        .btn {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: darkblue;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Read Spell Focus</h1>
+
+        <!-- Reading Section -->
+        <div class="reading-section">
+            <h2>Click a Word to Hear It</h2>
+            <div class="word-grid">
+                <div class="word" onclick="speakWord('bat')">Bat</div>
+                <div class="word" onclick="speakWord('cap')">Cap</div>
+                <div class="word" onclick="speakWord('tap')">Tap</div>
+                <div class="word" onclick="speakWord('lap')">Lap</div>
+                <div class="word" onclick="speakWord('cat')">Cat</div>
+                <div class="word" onclick="speakWord('map')">Map</div>
+                <div class="word" onclick="speakWord('bag')">Bag</div>
+                <div class="word" onclick="speakWord('rag')">Rag</div>
+                <div class="word" onclick="speakWord('jam')">Jam</div>
+                <div class="word" onclick="speakWord('pan')">Pan</div>
+                <div class="word" onclick="speakWord('man')">Man</div>
+                <div class="word" onclick="speakWord('van')">Van</div>
+                <div class="word" onclick="speakWord('pat')">Pat</div>
+                <div class="word" onclick="speakWord('mat')">Mat</div>
+                <div class="word" onclick="speakWord('wax')">Wax</div>
+                <div class="word" onclick="speakWord('tan')">Tan</div>
+            </div>
+        </div>
+
+        <!-- Learning Box -->
+        <div class="learning-box">
+            <div class="phonetics">ă</div>
+            <div class="prefixes">-re<br>-un</div>
+            <div class="suffixes">-s<br>-es<br>-ing<br>-ed</div>
+
+            <!-- Spelling Input Box -->
+            <div class="spelling-section">
+                <h2>Type the Spelling</h2>
+                <input type="text" id="spelling-input" class="spelling-input">
+                <div class="btn-container">
+                    <button class="btn" onclick="playWord()">Go</button>
+                    <button class="btn" onclick="repeatWord()">Again</button>
+                    <button class="btn" onclick="nextWord()">Next</button>
+                </div>
+                <p id="spelling-result" class="result"></p>
+            </div>
+
+            <div class="consonants">s c b p t l</div>
+        </div>
+    </div>
+
+    <script>
+        const spellingWords = ["bat", "cap", "tap", "lap"];
+        let currentWordIndex = 0;
+
+        function speakWord(word) {
+            let speech = new SpeechSynthesisUtterance(word);
+            speech.lang = "en-US";
+            speechSynthesis.speak(speech);
+        }
+
+        function playWord() {
+            let word = spellingWords[currentWordIndex];
+            speakWord(word);
+        }
+
+        function repeatWord() {
+            playWord();
+        }
+
+        function nextWord() {
+            let inputField = document.getElementById("spelling-input");
+            let userInput = inputField.value.toLowerCase();
+            let correctWord = spellingWords[currentWordIndex];
+
+            if (userInput === correctWord) {
+                document.getElementById("spelling-result").textContent = "✅ Correct!";
+                document.getElementById("spelling-result").style.color = "green";
+            } else {
+                document.getElementById("spelling-result").textContent = "❌ Incorrect, try again!";
+                document.getElementById("spelling-result").style.color = "red";
+                return;
+            }
+
+            inputField.value = "";
+            currentWordIndex++;
+
+            if (currentWordIndex >= spellingWords.length) {
+                document.getElementById("spelling-result").textContent = "🎉 Activity Complete!";
+            } else {
+                playWord();
+            }
+        }
+    </script>
+
+</body>
+</html>
