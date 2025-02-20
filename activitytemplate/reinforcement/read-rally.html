@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Rally - CVC2 Reading Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .word-list, .sentence-list {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .word, .sentence {
+            padding: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .word:hover, .sentence:hover {
+            background: #bbb;
+        }
+
+        .timer-section {
+            margin-top: 20px;
+        }
+
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background: blue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background: darkblue;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Read Rally - CVC2 Reading Activity</h1>
+        <p>Practice reading aloud. Click on words and sentences to hear pronunciation.</p>
+
+        <!-- Timer Section -->
+        <div class="timer-section">
+            <button class="btn" onclick="startTimer()">Start Timer</button>
+            <button class="btn" onclick="resetTimer()">Reset Timer</button>
+            <p class="timer" id="timer">Time: 0s</p>
+        </div>
+
+        <!-- Word List -->
+        <h2>Words</h2>
+        <div class="word-list">
+            <div class="word" onclick="speakWord('Dip')">Dip 🔊</div>
+            <div class="word" onclick="speakWord('Lip')">Lip 🔊</div>
+            <div class="word" onclick="speakWord('Sip')">Sip 🔊</div>
+            <div class="word" onclick="speakWord('Tip')">Tip 🔊</div>
+            <div class="word" onclick="speakWord('Hip')">Hip 🔊</div>
+            <div class="word" onclick="speakWord('Rip')">Rip 🔊</div>
+            <div class="word" onclick="speakWord('Mat')">Mat 🔊</div>
+            <div class="word" onclick="speakWord('Bat')">Bat 🔊</div>
+            <div class="word" onclick="speakWord('Cat')">Cat 🔊</div>
+            <div class="word" onclick="speakWord('Pat')">Pat 🔊</div>
+        </div>
+
+        <!-- Sentence List -->
+        <h2>Sentences</h2>
+        <div class="sentence-list">
+            <div class="sentence" onclick="speakSentence('Tim sips his drink.')">"Tim sips his drink." 🔊</div>
+            <div class="sentence" onclick="speakSentence('The tip of the lip.')">"The tip of the lip." 🔊</div>
+            <div class="sentence" onclick="speakSentence('Max has a big bag.')">"Max has a big bag." 🔊</div>
+            <div class="sentence" onclick="speakSentence('Bill hits a bat.')">"Bill hits a bat." 🔊</div>
+            <div class="sentence" onclick="speakSentence('A pig digs and a cat sits.')">"A pig digs and a cat sits." 🔊</div>
+            <div class="sentence" onclick="speakSentence('Bill hits a bat.')">"Bill hits a bat." 🔊</div>
+        </div>
+
+    </div>
+
+    <script>
+        let timer = 0;
+        let interval;
+
+        function startTimer() {
+            clearInterval(interval);
+            timer = 0;
+            document
