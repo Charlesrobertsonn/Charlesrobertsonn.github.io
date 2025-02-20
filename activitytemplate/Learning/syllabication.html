@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabication Focus - VC/CV Rule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Video Section */
+        .video-container {
+            margin-bottom: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 8px;
+        }
+
+        /* Reading Section */
+        .word-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .word {
+            padding: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Syllabication Activity */
+        .syllable-section {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .check-btn {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Syllabication Focus: VC/CV Rule</h1>
+
+        <!-- Video Section -->
+        <div class="video-container">
+            <h2>Learn How to Divide Words into Syllables</h2>
+            <iframe src="https://www.youtube.com/embed/your_video_id_here" allowfullscreen></iframe>
+        </div>
+
+        <!-- Reading Activity -->
+        <div class="reading-section">
+            <h2>Words to Read (VC/CV Pattern)</h2>
+            <div class="word-list">
+                <div class="word">Rabbit</div>
+                <div class="word">Basket</div>
+                <div class="word">Puppet</div>
+                <div class="word">Letter</div>
+                <div class="word">Summer</div>
+                <div class="word">Muffin</div>
+                <div class="word">Kitten</div>
+                <div class="word">Happy</div>
+                <div class="word">Cactus</div>
+                <div class="word">Tennis</div>
+            </div>
+        </div>
+
+        <!-- Syllabication Activity -->
+        <div class="syllable-section">
+            <h2>Divide the Syllables</h2>
+            <p>Type the syllables with a space in between (e.g., Rabbit → "Rab bit").</p>
+
+            <div class="syllable-list">
+                <p>Rabbit:</p>
+                <input type="text" id="word1">
+
+                <p>Basket:</p>
+                <input type="text" id="word2">
+
+                <p>Puppet:</p>
+                <input type="text" id="word3">
+
+                <p>Letter:</p>
+                <input type="text" id="word4">
+            </div>
+
+            <button class="check-btn" onclick="checkSyllables()">Check Answers</button>
+            <p id="syllable-result" class="result"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to check if the syllabication is correct
+        function checkSyllables() {
+            const correctSyllables = {
+                "word1": "Rab bit",
+                "word2": "Bas ket",
+                "word3": "Pup pet",
+                "word4": "Let ter"
+            };
+
+            let score = 0;
+
+            for (let key in correctSyllables) {
+                let userInput = document.getElementById(key).value.trim();
+                if (userInput.toLowerCase() === correctSyllables[key].toLowerCase()) {
+                    score++;
+                }
+            }
+
+            let resultText = score === 4 ? "Excellent! ✅ You got all correct!" : `You got ${score}/4 correct. Try again! ❌`;
+            document.getElementById("syllable-result").textContent = resultText;
+            document.getElementById("syllable-result").style.color = score === 4 ? "green" : "red";
+        }
+    </script>
+
+</body>
+</html>
