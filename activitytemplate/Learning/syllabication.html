@@ -55,6 +55,7 @@
             border-radius: 5px;
             font-size: 18px;
             font-weight: bold;
+            cursor: pointer; /* Make words clickable */
         }
 
         /* Syllabication Activity */
@@ -219,6 +220,19 @@
         }
 
         document.getElementById("checkBtn").addEventListener("click", checkSyllables);
+
+        // Function to read the word aloud
+        function readWord(word) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            speechSynthesis.speak(utterance);
+        }
+
+        // Add event listeners to each word
+        document.querySelectorAll('.word').forEach(wordElement => {
+            wordElement.addEventListener('click', () => {
+                readWord(wordElement.textContent);
+            });
+        });
     </script>
 </body>
 </html>

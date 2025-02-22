@@ -184,6 +184,31 @@
             });
         }
 
+        function checkSentence() {
+            const inputs = document.querySelectorAll("#writingGrid input");
+
+            inputs.forEach(input => {
+                const correctWord = input.getAttribute("data-word").toLowerCase();
+                const userInput = input.value.trim().toLowerCase();
+
+                if (userInput === correctWord) {
+                    input.style.backgroundColor = "#c8e6c9"; // Light green for correct
+                    input.style.border = "2px solid #388e3c"; // Dark green border
+                } else {
+                    input.style.backgroundColor = "#ffcccb"; // Light red for incorrect
+                    input.style.border = "2px solid #d32f2f"; // Dark red border
+                }
+            });
+        }
+
+        // Real-time feedback: Reset color when user types
+        document.addEventListener("input", function(event) {
+            if (event.target.tagName === "INPUT") {
+                event.target.style.backgroundColor = "white"; // Reset color while typing
+                event.target.style.border = "1px solid #ccc";
+            }
+        });
+
         // Initialize the grid
         generateReadingWords();
         generateWritingTask();
