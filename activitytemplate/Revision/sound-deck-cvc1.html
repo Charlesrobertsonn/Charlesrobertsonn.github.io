@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sound Cards Slideshow</title>
-    <link rel="stylesheet" href="../styles/styles.css"> <!-- Adjust the path as needed -->
+    <title>Sound Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
             background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 20px 0 10px 0;
+        }
+
+        main p {
+            font-size: 28px;
+            margin: 0 0 20px 0;
+            font-weight: 400;
         }
 
         .slideshow-container {
             position: relative;
-            max-width: 800px; /* Increase the max-width */
-            width: 90%; /* Make it responsive */
+            max-width: 800px;
+            width: 90%;
             margin: 20px auto;
+            background: white;
+            padding: 30px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             overflow: hidden;
-            background: white;
-            padding: 30px; /* Increase padding */
         }
 
         .slide {
@@ -29,19 +42,28 @@
             text-align: center;
         }
 
+        .letter {
+            font-size: 100px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+            text-align: center;
+            text-transform: lowercase;
+        }
+
         .slide img {
-            width: 100%; /* Make the image fill the container */
-            max-width: 600px; /* Ensure it doesn't get too big */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 12px; /* Slightly larger rounded corners */
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
         }
 
         .caption {
             font-size: 18px;
             margin-top: 10px;
+            text-transform: lowercase;
         }
 
-        /* Navigation buttons */
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -56,21 +78,14 @@
             outline: none;
         }
 
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
 
         .prev:hover, .next:hover {
             background: rgba(0, 0, 0, 0.8);
         }
 
-        /* Dots for navigation */
         .dots-container {
-            text-align: center;
             margin-top: 10px;
         }
 
@@ -88,7 +103,6 @@
             background-color: #717171;
         }
 
-        /* Fade effect */
         .fade {
             animation: fadeEffect 1s;
         }
@@ -97,125 +111,128 @@
             from {opacity: 0.4;}
             to {opacity: 1;}
         }
+
+        .play-pause-btn {
+            margin-top: 15px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Exercise 1: Sound Cards</h1>
-    </header>
-    
-    <main>
-        <section>
-            <p>This exercise involves voicing out the sounds using sound cards.</p>
-        </section>
 
-        <section>
-            <h2>CVC1: Short 'a' Vowel</h2>
+<header>
+    <h1>Sound Deck</h1>
+</header>
 
-            <div class="slideshow-container">
-                
-                <!-- Slide 1 -->
-                <div class="slide fade">
-                    <img src="url_to_image_of_S" alt="S Sound">
-                    <div class="caption">S - [Hear Sound](url_to_sound_file)</div>
-                </div>
+<main>
+    <p>Listen to my voice and sound them out!</p>
 
-                <!-- Slide 2 -->
-                <div class="slide fade">
-                    <img src="url_to_image_of_M" alt="M Sound">
-                    <div class="caption">M - [Hear Sound](url_to_sound_file)</div>
-                </div>
+    <div class="slideshow-container">
 
-                <!-- Slide 3 -->
-                <div class="slide fade">
-                    <img src="url_to_image_of_N" alt="N Sound">
-                    <div class="caption">N - [Hear Sound](url_to_sound_file)</div>
-                </div>
+        <div class="slide fade" data-sound="url_to_sound_S"><div class="letter">s</div><img src="url_to_image_of_S"><div class="caption">s - <a href="url_to_sound_S" target="_blank">hear sound</a></div></div>
+        <div class="slide fade" data-sound="url_to_sound_M"><div class="letter">m</div><img src="url_to_image_of_M"><div class="caption">m - <a href="url_to_sound_M" target="_blank">hear sound</a></div></div>
+        <div class="slide fade" data-sound="url_to_sound_N"><div class="letter">n</div><img src="url_to_image_of_N"><div class="caption">n - <a href="url_to_sound_N" target="_blank">hear sound</a></div></div>
+        <div class="slide fade" data-sound="url_to_sound_F"><div class="letter">f</div><img src="url_to_image_of_F"><div class="caption">f - <a href="url_to_sound_F" target="_blank">hear sound</a></div></div>
+        <div class="slide fade" data-sound="url_to_sound_T"><div class="letter">t</div><img src="url_to_image_of_T"><div class="caption">t - <a href="url_to_sound_T" target="_blank">hear sound</a></div></div>
+        <div class="slide fade" data-sound="url_to_sound_A"><div class="letter">a</div><img src="url_to_image_of_A"><div class="caption">a - <a href="url_to_sound_A" target="_blank">hear sound</a></div></div>
+        <div class="slide fade" data-sound="url_to_sound_Bat"><div class="letter">bat</div><img src="url_to_image_of_Bat"><div class="caption">cvc word: bat</div></div>
 
-                <!-- Slide 4 -->
-                <div class="slide fade">
-                    <img src="url_to_image_of_F" alt="F Sound">
-                    <div class="caption">F - [Hear Sound](url_to_sound_file)</div>
-                </div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
 
-                <!-- Slide 5 -->
-                <div class="slide fade">
-                    <img src="url_to_image_of_T" alt="T Sound">
-                    <div class="caption">T - [Hear Sound](url_to_sound_file)</div>
-                </div>
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+        </div>
 
-                <!-- Slide 6 -->
-                <div class="slide fade">
-                    <img src="url_to_image_of_A" alt="A Vowel">
-                    <div class="caption">A - [Hear Sound](url_to_sound_file)</div>
-                </div>
+        <button class="play-pause-btn" onclick="togglePlayPause()">Pause</button>
 
-                <!-- Slide 7 -->
-                <div class="slide fade">
-                    <img src="url_to_image_of_Bat" alt="CVC Word: Bat">
-                    <div class="caption">CVC Word: Bat</div>
-                </div>
+    </div>
+</main>
 
-                <!-- Navigation Buttons -->
-                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+<footer>
+    <p>© 2025 Your Name</p>
+</footer>
 
-                <!-- Dots for Navigation -->
-                <div class="dots-container">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
-                    <span class="dot" onclick="currentSlide(6)"></span>
-                    <span class="dot" onclick="currentSlide(7)"></span>
-                </div>
-            </div>
-        </section>
-    </main>
+<script>
+    let slideIndex = 0;
+    let autoSlideTimeout;
+    let isAutoPlaying = true;
+    const AUTO_PLAY_INTERVAL = 5000;
+    let currentAudio = null;
 
-    <footer>
-        <p>© 2025 Your Name</p>
-    </footer>
+    function initSlides() {
+        showSlides(slideIndex);
+        autoSlideTimeout = setTimeout(autoSlides, AUTO_PLAY_INTERVAL);
+    }
 
-    <script>
-        let slideIndex = 0;
-        showSlides();
+    function changeSlide(n) {
+        clearTimeout(autoSlideTimeout);
+        showSlides(slideIndex += n);
+        if (isAutoPlaying) {
+            autoSlideTimeout = setTimeout(autoSlides, AUTO_PLAY_INTERVAL);
+        }
+    }
 
-        function changeSlide(n) {
-            showSlides(slideIndex += n);
+    function currentSlide(n) {
+        clearTimeout(autoSlideTimeout);
+        showSlides(slideIndex = n - 1);
+        if (isAutoPlaying) {
+            autoSlideTimeout = setTimeout(autoSlides, AUTO_PLAY_INTERVAL);
+        }
+    }
+
+    function autoSlides() {
+        slideIndex++;
+        showSlides(slideIndex);
+        if (isAutoPlaying) {
+            autoSlideTimeout = setTimeout(autoSlides, AUTO_PLAY_INTERVAL);
+        }
+    }
+
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("slide");
+        const dots = document.getElementsByClassName("dot");
+
+        if (n >= slides.length) slideIndex = 0;
+        if (n < 0) slideIndex = slides.length - 1;
+
+        for (let slide of slides) {
+            slide.style.display = "none";
+        }
+        for (let dot of dots) {
+            dot.classList.remove("active");
         }
 
-        function currentSlide(n) {
-            showSlides(slideIndex = n - 1);
+        slides[slideIndex].style.display = "block";
+        dots[slideIndex].classList.add("active");
+
+        playSlideSound(slides[slideIndex].getAttribute('data-sound'));
+    }
+
+    function playSlideSound(soundUrl) {
+        if (currentAudio) currentAudio.pause();
+        if (soundUrl) {
+            currentAudio = new Audio(soundUrl);
+            currentAudio.play();
         }
+    }
 
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
+    function togglePlayPause() {
+        isAutoPlaying = !isAutoPlaying;
+        document.querySelector('.play-pause-btn').textContent = isAutoPlaying ? "Pause" : "Play";
+        if (isAutoPlaying) autoSlides();
+        else clearTimeout(autoSlideTimeout);
+    }
 
-            if (n === undefined) {
-                slideIndex++;
-                if (slideIndex >= slides.length) { slideIndex = 0; }
-            } else {
-                if (n >= slides.length) { slideIndex = 0; }
-                if (n < 0) { slideIndex = slides.length - 1; }
-            }
-
-            for (let slide of slides) {
-                slide.style.display = "none";
-            }
-
-            for (let dot of dots) {
-                dot.classList.remove("active");
-            }
-
-            slides[slideIndex].style.display = "block";
-            dots[slideIndex].classList.add("active");
-
-            setTimeout(showSlides, 3000);
-        }
-    </script>
+    window.onload = initSlides;
+</script>
 
 </body>
 </html>
